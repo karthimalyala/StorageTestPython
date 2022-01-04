@@ -15,6 +15,6 @@ On Appservice, use the mount path as "/home/site/wwwroot/static" or to any other
 If you are using other path than "/home/site/wwwroot/static". Please change the respective path in code too
 
 
-On Appservice, add app setting to disable collect static [DISABLE_COLLECTSTATIC to true && SC]
+On Appservice, add app setting to disable collect static [DISABLE_COLLECTSTATIC to true]
 
 
