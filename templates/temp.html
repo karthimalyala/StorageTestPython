@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test from Azure SAS storage</title>
+    
+</head>
+<script language="javascript">
+    function setImageSrc()
+    {
+    var img1=document.getElementById('img1');
+    var AZURE_URL = "https://sqlvawxc5cgkxoxu6y.blob.core.windows.net/vulnerability-assessment"
+    img1.src=AZURE_URL+'/Test.jpg?sp=r&st=2021-12-30T13:25:58Z&se=2022-02-27T21:25:58Z&sv=2020-08-04&sr=c&sig=geNBU%2FG5%2BHwV%2BPFef5gv6vLmrE%2FZBySzAjYbGTc9WzI%3D';
+    }
+</script>
+<body onload="setImageSrc();">
+    <div>  
+        <h1>This is from index.html</h1>
+        <img id="img1">;
+   
+    </div>
+
+</body>
+</html>
+
+
+STATICFILES_STORAGE = 'testsas.backends.AzureStaticStorage'
+DEFAULT_FILE_STORAGE = 'testsas.backends.AzureMediaStorage'
+# AZURE_URL_EXPIRATION_SECS = 500
+AZURE_SAS_TOKEN = 'sp=r&st=2021-12-30T13:25:58Z&se=2022-02-27T21:25:58Z&sv=2020-08-04&sr=c&sig=geNBU%2FG5%2BHwV%2BPFef5gv6vLmrE%2FZBySzAjYbGTc9WzI%3D'
+AZURE_SAS_TOKEN_MEDIA = 'sp=r&st=2021-12-30T13:25:58Z&se=2022-02-27T21:25:58Z&sv=2020-08-04&sr=c&sig=geNBU%2FG5%2BHwV%2BPFef5gv6vLmrE%2FZBySzAjYbGTc9WzI%3D'
+AZURE_STATIC_CONTAINER = "vulnerability-assessment"
+#AZURE_MEDIA_CONTAINER = "rdt-media-devstg"
+
+AZURE_ACCOUNT_NAME = "sqlvawxc5cgkxoxu6y"
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/'
+#MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/'
