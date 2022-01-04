@@ -118,9 +118,6 @@ USE_TZ = True
 
 STATIC_URL = '/home/site/wwwroot/static/'
 
-STATICFILES_DIRS = [os.path.join("/home/site/wwwroot/","static"),
-  #'/var/www/static/',
-]
 
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 # Default primary key field type
