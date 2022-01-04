@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('testsas.urls')),
     path('admin/', admin.site.urls),
+    path('/home/site/wwwroot/static',admin.site.urls),
 ]
